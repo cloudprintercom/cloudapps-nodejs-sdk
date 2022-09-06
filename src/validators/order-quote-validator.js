@@ -6,7 +6,7 @@ export class OrderQuoteValidator extends Validator {
         let schema = Joi.object().keys({
             country: Joi.string().required(),
             state: Joi.string()
-                .when('country', {is: Joi.valid('US', 'CA'), then: Joi.required()}),
+                .when('country', {is: Joi.valid('US', 'CA'), then: Joi.required(), otherwise: Joi.allow(null, '')}),
             items: Joi.array().items(Joi.object({
                 reference: Joi.string().required(),
                 product_reference: Joi.string().required(),
