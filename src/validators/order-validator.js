@@ -22,7 +22,7 @@ export class OrderValidator extends Validator {
                     .when('country', {is: Joi.valid(countriesWithoutZip), otherwise: Joi.required()}),
                 country: Joi.string().required(),
                 state: Joi.string()
-                    .when('country', {is: Joi.valid(countriesWithState), then: Joi.required()}),
+                    .when('country', {is: Joi.valid(countriesWithState), then: Joi.required(), otherwise: Joi.allow(null, '')}),
                 city: Joi.string().required(),
                 email: Joi.string().email().required(),
                 phone: Joi.string().required(),

@@ -6,7 +6,7 @@ export class User {
      */
     constructor(client) {
         this.client = Object.assign({}, client);
-        const baseUrl = 'https://api.cloudprinter.com/clouduser/1.0/';
+        const baseUrl = `https://api.cloudprinter.com/clouduser/${client.version}/`;
         this.client.httpClient = new HttpClient(baseUrl, client.headers);
     }
 

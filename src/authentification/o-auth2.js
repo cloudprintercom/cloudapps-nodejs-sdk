@@ -4,9 +4,10 @@ const Joi = require('joi');
 export class OAuth2 {
     /**
      * @param config
+     * @param version
      */
-    constructor(config) {
-        this.baseUrl = 'https://api.cloudprinter.com/cloudauth/1.0/';
+    constructor(config, version = '1.0') {
+        this.baseUrl = `https://api.cloudprinter.com/cloudauth/${version}/`;
         this.config = config;
     }
 

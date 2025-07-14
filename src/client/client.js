@@ -9,9 +9,11 @@ import { HttpClient } from "../http/http-client";
 export class Client {
     /**
      * @param accessToken
+     * @param version
      */
-    constructor(accessToken) {
-        this.baseUrl = 'https://api.cloudprinter.com/cloudapps/1.0/';
+    constructor(accessToken, version = '1.0') {
+        this.version = version;
+        this.baseUrl = `https://api.cloudprinter.com/cloudapps/${this.version}/`;
         this.headers = {
             'Authorization': "Bearer " + accessToken,
             'Content-Type': 'application/json'

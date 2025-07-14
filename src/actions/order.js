@@ -65,6 +65,18 @@ export class Order {
     }
 
     /**
+     * Get order invoices.
+     * @param orderReference
+     * @returns {Promise}
+     */
+    getInvoices(orderReference) {
+        const data = {
+            reference: orderReference
+        };
+        return this.client.httpClient.makePostRequest('orders/invoices', data);
+    }
+
+    /**
      * Get order log action.
      * @param orderReference
      * @returns {Promise}
